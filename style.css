@@ -1,0 +1,205 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root{
+    --active-new-task: rgb(255, 72, 72);
+
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#Title{
+    margin: 10px;
+    font-size: 35px;
+    font-weight: 600;
+    color:var(--active-new-task) ;
+}
+
+#content{
+    border-radius: 40px;
+    width: 70%;
+    background-color: aliceblue;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+#Tasks{
+    width: 100%;
+    padding: 20px;
+ padding-bottom: 0;
+}
+input{
+ background-color: aliceblue;
+    border: none;
+    padding: 4px;
+}
+textarea{
+    background-color: aliceblue;
+    border: none;
+   padding: 4px;
+}
+
+#addTask{
+    width: 90%;
+    margin: 10px;
+    border-top: 1px solid black;
+}
+#form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#form button{
+    width: fit-content;
+    color: white;
+    background-color: var(--active-new-task);
+    padding: 6px;
+    border-radius: 4px;
+}
+#form button:hover{
+    background-color:rgb(252, 27, 27) ;
+}
+.formContainer{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+button{
+    width: 100%;
+    padding: 10px;
+    background-color: aliceblue;
+    border:0px solid aliceblue;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+   font-size: 20px;
+   font-weight: 200;
+    
+}
+
+ button .icon{
+   margin: 5px;
+   padding: 5px;
+   border-radius: 10px;
+    color: var(--active-new-task);
+} 
+
+button:hover .icon{
+   background-color: var(--active-new-task);
+   color: white;
+   
+}
+button:hover {
+   color:  var(--active-new-task);
+    
+}
+.taskContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    margin: 10px;
+    padding: 10px;
+    margin-bottom: 0;
+}
+.addFormBut{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#form  .cancel{
+    background-color: aliceblue;
+    border: 1px solid black;
+    color: black;
+}
+#form  .cancel:hover{
+    background-color: rgb(189, 193, 197);
+}
+
+.taskContainer input{
+    border-radius: 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.red{
+    background-color: red;
+    border-radius: 10px;
+    
+}
+.red:hover{
+   color: white;
+    
+}
+.yellow{
+    background-color: rgb(223, 223, 114);
+     border-radius: 10px;
+}
+.yellow:hover{
+    color: rgb(123, 132, 175);
+}
+.blue{
+    background-color: rgb(103, 103, 196);
+     border-radius: 10px;
+}
+.blue:hover{
+    color: white;
+}
+.about{
+    padding-left: 30px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.about div{
+    margin: 5px;
+}
+nav{
+    width: 100%;
+    background-color: aliceblue;
+    height: fit-content;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+nav li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+li ul{
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+     margin: 10px;
+    border-radius: 20px;
+}
+#addSec{
+    border:1px solid black;
+    border-radius: 10px;
+    width: fit-content;
+}
+#main{
+    background-color: var(--active-new-task);
+   
+}
