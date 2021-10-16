@@ -13,6 +13,16 @@ class ToDo {
 
 }
 
+ if (window.localStorage.getItem('Pages')) {
+      setPages();
+      UpdateToDos();
+  }
+
+function setPages() {
+    Pages = JSON.parse(window.localStorage.getItem('Pages'));
+
+}
+
 function addNewSection() {
     const main =document.querySelector('#main');
     main.addEventListener('click',()=>{
@@ -48,6 +58,8 @@ function addNewSection() {
         Progects.appendChild(newItem);
         
         Pages[`${newItem.textContent}`]= new Array();
+        window.localStorage.clear();
+        window.localStorage.setItem('Pages', JSON.stringify(Pages));
         
     } 
     addSec.style.display = 'inline';
@@ -107,6 +119,8 @@ function addNewTask() {
         if (title.value && description.value && priority.value && date.valueAsDate) {
             let Task = new ToDo(title.value, description.value, date.value, priority.valueAsNumber);
             Pages[`${currentP}`].push(Task);
+            window.localStorage.clear();
+            window.localStorage.setItem('Pages', JSON.stringify(Pages));
             //console.table(Tasks);
             add.style.display = 'inline';
             container.style.display = 'none';
@@ -161,15 +175,45 @@ function UpdateToDos() {
             } else {
                 about.style.display = 'none'
             }
-
+            window.localStorage.clear();
+            window.localStorage.setItem('Pages', JSON.stringify(Pages));
         });
         check.addEventListener('click', () => {
             container.style.display = 'none';
             about.style.display = 'none';
-
             Pages[`${currentP}`].splice(i, 1);
+            window.localStorage.clear();
+            window.localStorage.setItem('Pages', JSON.stringify(Pages));
+            
         })
 
+    }
+    window.localStorage.clear();
+    window.localStorage.setItem('Pages',JSON.stringify(Pages));
+}
+
+function storageAvailable(type) {
+    var storage;
+    try {
+        storage = window[type];
+        var x = '__storage_test__';
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+    }
+    catch (e) {
+        return e instanceof DOMException && (
+            // everything except Firefox
+            e.code === 22 ||
+            // Firefox
+            e.code === 1014 ||
+            // test name field too, because code might not be present
+            // everything except Firefox
+            e.name === 'QuotaExceededError' ||
+            // Firefox
+            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+            // acknowledge QuotaExceededError only if there's something already stored
+            (storage && storage.length !== 0);
     }
 }
 
